@@ -19827,13 +19827,17 @@ var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStore');
 
 var AddForm = React.createClass({displayName: "AddForm",
+  onSubmit: function(e) {
+    e.preventDefault();
+    console.log(this.refs.title.value);
+  },
   render(){
     return(
       React.createElement("div", null, 
         React.createElement("div", {className: "add-form"}, 
           React.createElement("panel", {className: "c12"}, 
             React.createElement("h3", null, "Add Video"), 
-            React.createElement("form", {action: ""}, 
+            React.createElement("form", {onSubmit: this.onSubmit}, 
               React.createElement("div", {className: "form-group"}, 
                 React.createElement("label", null, "Video Title"), 
                 React.createElement("input", {type: "text", className: "form-control", ref: "title"})
