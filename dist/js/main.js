@@ -19830,7 +19830,26 @@ var AddForm = React.createClass({displayName: "AddForm",
   render(){
     return(
       React.createElement("div", null, 
-        "Add Form"
+        React.createElement("div", {className: "add-form"}, 
+          React.createElement("panel", {className: "c12"}, 
+            React.createElement("h3", null, "Add Video"), 
+            React.createElement("form", {action: ""}, 
+              React.createElement("div", {className: "form-group"}, 
+                React.createElement("label", null, "Video Title"), 
+                React.createElement("input", {type: "text", className: "form-control", ref: "title"})
+              ), 
+              React.createElement("div", {className: "form-group"}, 
+                React.createElement("label", null, "Video ID"), 
+                React.createElement("input", {type: "text", className: "form-control", ref: "id"})
+              ), 
+              React.createElement("div", {className: "form-group"}, 
+                React.createElement("label", null, "Video Description"), 
+                React.createElement("textarea", {className: "form-control", ref: "description"})
+              ), 
+              React.createElement("button", {type: "submit", className: "button"}, "Add")
+            )
+          )
+        )
       )
     )
   }
