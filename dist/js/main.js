@@ -19853,10 +19853,8 @@ var App = React.createClass({displayName: "App",
 
   render(){
     return(
-      React.createElement("div", {className: "container"}, 
-        React.createElement("div", {className: "jumbotron"}
-        
-        )
+      React.createElement("div", null, 
+        "youtube Gallery"
       )
     )
   }

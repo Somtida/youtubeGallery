@@ -29,10 +29,8 @@ var App = React.createClass({
 
   render(){
     return(
-      <div className="container">
-        <div className="jumbotron">
-        
-        </div>
+      <div>
+        youtube Gallery
       </div>
     )
   }
