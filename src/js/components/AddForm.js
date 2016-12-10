@@ -5,7 +5,12 @@ var AppStore = require('../stores/AppStore');
 var AddForm = React.createClass({
   onSubmit: function(e) {
     e.preventDefault();
-    console.log(this.refs.title.value);
+    var video = {
+    	title: this.refs.title.value.trim();
+    	video_id: this.refs.video_id.value.trim();
+    	description: this.refs.description.value.trim();
+    }
+    AppActions.saveVideo(video);
   },
   render(){
     return(
