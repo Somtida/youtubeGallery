@@ -19839,15 +19839,15 @@ var AddForm = React.createClass({displayName: "AddForm",
             React.createElement("h3", null, "Add Video"), 
             React.createElement("form", {onSubmit: this.onSubmit}, 
               React.createElement("div", {className: "form-group"}, 
-                React.createElement("label", null, "Video Title"), 
+                React.createElement("label", null, "Video Title"), React.createElement("br", null), 
                 React.createElement("input", {type: "text", className: "form-control", ref: "title"})
               ), 
               React.createElement("div", {className: "form-group"}, 
-                React.createElement("label", null, "Video ID"), 
+                React.createElement("label", null, "Video ID"), React.createElement("br", null), 
                 React.createElement("input", {type: "text", className: "form-control", ref: "id"})
               ), 
               React.createElement("div", {className: "form-group"}, 
-                React.createElement("label", null, "Video Description"), 
+                React.createElement("label", null, "Video Description"), React.createElement("br", null), 
                 React.createElement("textarea", {className: "form-control", ref: "description"})
               ), 
               React.createElement("button", {type: "submit", className: "button"}, "Add")
