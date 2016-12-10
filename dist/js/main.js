@@ -19915,7 +19915,7 @@ module.exports = App;
 
 },{"../actions/AppActions":164,"../stores/AppStore":170,"./AddForm":165,"react":163}],167:[function(require,module,exports){
 module.exports = {
-
+  SAVE_VIDEO: 'SAVE_VIDEO',
 }
 
 },{}],168:[function(require,module,exports){
