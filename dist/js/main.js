@@ -19815,7 +19815,13 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 
 var AppActions = {
-  
+  saveVideo(video) {
+    AppDispatcher.handleViewAction({
+    	actionType: AppConstants.SAVE_VIDEO,
+    	video
+    })
+  }
+
 
 }
 
@@ -19829,7 +19835,12 @@ var AppStore = require('../stores/AppStore');
 var AddForm = React.createClass({displayName: "AddForm",
   onSubmit: function(e) {
     e.preventDefault();
-    console.log(this.refs.title.value);
+    var video = {
+    	title: this.refs.title.value.trim(),
+    	video_id: this.refs.video_id.value.trim(),
+    	description: this.refs.description.value.trim()
+    }
+    AppActions.saveVideo(video);
   },
   render(){
     return(
@@ -19844,7 +19855,7 @@ var AddForm = React.createClass({displayName: "AddForm",
               ), 
               React.createElement("div", {className: "form-group"}, 
                 React.createElement("label", null, "Video ID"), React.createElement("br", null), 
-                React.createElement("input", {type: "text", className: "form-control", ref: "id"})
+                React.createElement("input", {type: "text", className: "form-control", ref: "video_id"})
               ), 
               React.createElement("div", {className: "form-group"}, 
                 React.createElement("label", null, "Video Description"), React.createElement("br", null), 
@@ -19962,7 +19973,10 @@ AppDispatcher.register(function(payload) {
   var action = payload.action;
 
   switch(action.actionType) {
-    
+    case AppConstants.SAVE_VIDEO:
+	    console.log("Saving video…");
+      break;
+
   }
 
   return true;

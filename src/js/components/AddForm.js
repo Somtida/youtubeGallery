@@ -6,9 +6,9 @@ var AddForm = React.createClass({
   onSubmit: function(e) {
     e.preventDefault();
     var video = {
-    	title: this.refs.title.value.trim();
-    	video_id: this.refs.video_id.value.trim();
-    	description: this.refs.description.value.trim();
+    	title: this.refs.title.value.trim(),
+    	video_id: this.refs.video_id.value.trim(),
+    	description: this.refs.description.value.trim()
     }
     AppActions.saveVideo(video);
   },
@@ -25,7 +25,7 @@ var AddForm = React.createClass({
               </div>
               <div className="form-group">
                 <label>Video ID</label><br />
-                <input type="text" className="form-control" ref="id"/>
+                <input type="text" className="form-control" ref="video_id"/>
               </div>
               <div className="form-group">
                 <label>Video Description</label><br />

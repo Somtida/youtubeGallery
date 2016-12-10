@@ -25,7 +25,10 @@ AppDispatcher.register(function(payload) {
   var action = payload.action;
 
   switch(action.actionType) {
-    
+    case AppConstants.SAVE_VIDEO:
+	    console.log("Saving video…");
+      break;
+
   }
 
   return true;
