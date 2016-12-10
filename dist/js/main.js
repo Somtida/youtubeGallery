@@ -19957,7 +19957,15 @@ var CHANGE_EVENT = 'change';
 var _video = [];
 
 var AppStore = assign({}, EventEmitter.prototype, {
-
+  saveVideo(video) {
+  	_video.push(video);
+  },
+  getVideo() {
+  	return _video;
+  },
+  setVideo(video) {
+  	_video = video;
+  },
   emitChange: function() {
     this.emit(CHANGE_EVENT);
   },
