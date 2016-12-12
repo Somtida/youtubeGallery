@@ -40,7 +40,7 @@ AppDispatcher.register(function(payload) {
     	AppStore.saveVideo(action.video);
 
     	//API Save
-    	//AppAPI.saveVideo(action.video);
+    	AppAPI.saveVideo(action.video);
 
     	//Emit Change
     	AppStore.emit(CHANGE_EVENT);
