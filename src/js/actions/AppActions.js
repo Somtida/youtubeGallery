@@ -7,7 +7,13 @@ var AppActions = {
     	actionType: AppConstants.SAVE_VIDEO,
     	video
     })
-  }
+  },
+  receiveVideos(videos) {
+    AppDispatcher.handleViewAction({
+    	actionType: AppConstants.RECEIVE_VIDEOS,
+    	videos
+    })
+  },
 
 
 }

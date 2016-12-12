@@ -20102,7 +20102,13 @@ var AppActions = {
     	actionType: AppConstants.SAVE_VIDEO,
     	video
     })
-  }
+  },
+  receiveVideos(videos) {
+    AppDispatcher.handleViewAction({
+    	actionType: AppConstants.RECEIVE_VIDEOS,
+    	videos
+    })
+  },
 
 
 }
@@ -20198,6 +20204,7 @@ module.exports = App;
 },{"../actions/AppActions":165,"../stores/AppStore":171,"./AddForm":166,"react":164}],168:[function(require,module,exports){
 module.exports = {
   SAVE_VIDEO: 'SAVE_VIDEO',
+  RECEIVE_VIDEOS: 'RECEIVE_VIDEOS',
 }
 
 },{}],169:[function(require,module,exports){
@@ -20277,6 +20284,7 @@ AppDispatcher.register(function(payload) {
     	//Emit Change
     	AppStore.emit(CHANGE_EVENT);
       break;
+    
   }
 
   return true;
