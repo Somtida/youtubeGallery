@@ -20284,7 +20284,15 @@ AppDispatcher.register(function(payload) {
     	//Emit Change
     	AppStore.emit(CHANGE_EVENT);
       break;
-    
+    case AppConstants.RECEIVE_VIDEOS:
+	    console.log("Receiving videos…");
+
+    	// Set Videos
+    	AppStore.setVideos(action.video);
+
+    	//Emit Change
+    	AppStore.emit(CHANGE_EVENT);
+      break;
   }
 
   return true;
