@@ -10,7 +10,9 @@ module.exports = {
   getVideos() {
     this.firebaseRef = new Firebase("https://mygallery-3b400.firebaseio.com/videos");
     this.firebaseRef.once("value", (snapshot) => {
-      console.log(snapshot)
+      snapshot.forEach(ele => {
+        console.log(ele.val());
+      })
     });
   },
 }
