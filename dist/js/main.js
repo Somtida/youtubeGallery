@@ -19880,10 +19880,9 @@ var AddForm = require('./AddForm');
 
 function getAppState() {
   return {
-
+    videos: AppStore.getVideo(),
   }
 }
-
 
 var App = React.createClass({displayName: "App",
   getInitialState: function() {
@@ -19903,6 +19902,7 @@ var App = React.createClass({displayName: "App",
   },
 
   render(){
+    console.log(this.state.videos);
     return(
       React.createElement("div", null, 
         React.createElement(AddForm, null)
