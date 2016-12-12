@@ -7,4 +7,10 @@ module.exports = {
     this.firebaseRef = new Firebase("https://mygallery-3b400.firebaseio.com/videos");
     this.firebaseRef.push(video);
   },
+  getVideos() {
+    this.firebaseRef = new Firebase("https://mygallery-3b400.firebaseio.com/videos");
+    this.firebaseRef.once("value", (snapshot) => {
+      console.log(snapshot)
+    });
+  },
 }

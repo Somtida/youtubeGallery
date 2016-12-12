@@ -20222,6 +20222,8 @@ var ReactDOM = require('react-dom');
 var App = require('./components/App');
 var AppAPI = require('./utils/appAPI.js');
 
+AppAPI.getVideos();
+
 ReactDOM.render(
   React.createElement(App, null),
   document.getElementById('app')
@@ -20291,6 +20293,12 @@ module.exports = {
     console.log('API called...');
     this.firebaseRef = new Firebase("https://mygallery-3b400.firebaseio.com/videos");
     this.firebaseRef.push(video);
+  },
+  getVideos() {
+    this.firebaseRef = new Firebase("https://mygallery-3b400.firebaseio.com/videos");
+    this.firebaseRef.once("value", (snapshot) => {
+      console.log(snapshot)
+    });
   },
 }
 
