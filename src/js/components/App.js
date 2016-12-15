@@ -6,7 +6,7 @@ var VideoList = require('./VideoList');
 
 function getAppState() {
   return {
-    videos: AppStore.getVideo(),
+    videos: AppStore.getVideos(),
   }
 }
 
@@ -28,11 +28,12 @@ var App = React.createClass({
   },
 
   render(){
-    console.log(this.state.videos);
+    // console.log(this.state.videos);
+    //let VideoList = this.state.videos.length ? <VideoList videos={this.state.videos} /> : null;
     return(
       <div>
         <AddForm />
-        <VideoList videos={this.state.videos} />
+        {/* {VideoList} */}
       </div>
     )
   }

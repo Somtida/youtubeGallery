@@ -20169,7 +20169,7 @@ var VideoList = require('./VideoList');
 
 function getAppState() {
   return {
-    videos: AppStore.getVideo(),
+    videos: AppStore.getVideos(),
   }
 }
 
@@ -20191,11 +20191,12 @@ var App = React.createClass({displayName: "App",
   },
 
   render(){
-    console.log(this.state.videos);
+    // console.log(this.state.videos);
+    //let VideoList = this.state.videos.length ? <VideoList videos={this.state.videos} /> : null;
     return(
       React.createElement("div", null, 
-        React.createElement(AddForm, null), 
-        React.createElement(VideoList, {videos: this.state.videos})
+        React.createElement(AddForm, null)
+        /* {VideoList} */
       )
     )
   }
@@ -20287,18 +20288,17 @@ var assign = require('object-assign');
 var AppAPI = require('../utils/appAPI.js');
 
 var CHANGE_EVENT = 'change';
-
-var _video = [];
+var _videos = [];
 
 var AppStore = assign({}, EventEmitter.prototype, {
   saveVideo(video) {
-  	_video.push(video);
+  	_videos.push(video);
   },
-  getVideo() {
-  	return _video;
+  getVideos() {
+  	return _videos;
   },
-  setVideo(video) {
-  	_video = video;
+  setVideos(videos) {
+  	_videos = videos;
   },
   emitChange: function() {
     this.emit(CHANGE_EVENT);
@@ -20316,7 +20316,7 @@ AppDispatcher.register(function(payload) {
 
   switch(action.actionType) {
     case AppConstants.SAVE_VIDEO:
-	    console.log("Saving video…");
+	    console.log("Saving video…", action.video);
 
     	// Store Save
     	AppStore.saveVideo(action.video);
@@ -20327,7 +20327,7 @@ AppDispatcher.register(function(payload) {
     	//Emit Change
     	AppStore.emit(CHANGE_EVENT);
       break;
-      
+
     case AppConstants.RECEIVE_VIDEOS:
 	    console.log("Receiving videos…");
 
