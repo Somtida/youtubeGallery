@@ -10,7 +10,7 @@ var VideoList = React.createClass({
         {
           this.props.videos.map((video, index) => {
             return(
-              <Video video=video key=index />
+              <Video video={video} key={index} />
             )
           })
         }

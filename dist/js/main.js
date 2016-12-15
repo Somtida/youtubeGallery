@@ -20101,13 +20101,13 @@ var AppActions = {
     AppDispatcher.handleViewAction({
     	actionType: AppConstants.SAVE_VIDEO,
     	video
-    })
+    });
   },
   receiveVideos(videos) {
     AppDispatcher.handleViewAction({
     	actionType: AppConstants.RECEIVE_VIDEOS,
     	videos
-    })
+    });
   },
 
 
@@ -20115,7 +20115,7 @@ var AppActions = {
 
 module.exports = AppActions;
 
-},{"../constants/AppConstants":168,"../dispatcher/AppDispatcher":169}],166:[function(require,module,exports){
+},{"../constants/AppConstants":170,"../dispatcher/AppDispatcher":171}],166:[function(require,module,exports){
 var React = require('react');
 var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStore');
@@ -20160,11 +20160,12 @@ var AddForm = React.createClass({displayName: "AddForm",
 
 module.exports = AddForm;
 
-},{"../actions/AppActions":165,"../stores/AppStore":171,"react":164}],167:[function(require,module,exports){
+},{"../actions/AppActions":165,"../stores/AppStore":173,"react":164}],167:[function(require,module,exports){
 var React = require('react');
 var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStore');
 var AddForm = require('./AddForm');
+var VideoList = require('./VideoList');
 
 function getAppState() {
   return {
@@ -20193,7 +20194,8 @@ var App = React.createClass({displayName: "App",
     console.log(this.state.videos);
     return(
       React.createElement("div", null, 
-        React.createElement(AddForm, null)
+        React.createElement(AddForm, null), 
+        React.createElement(VideoList, {videos: this.state.videos})
       )
     )
   }
@@ -20201,13 +20203,54 @@ var App = React.createClass({displayName: "App",
 
 module.exports = App;
 
-},{"../actions/AppActions":165,"../stores/AppStore":171,"./AddForm":166,"react":164}],168:[function(require,module,exports){
+},{"../actions/AppActions":165,"../stores/AppStore":173,"./AddForm":166,"./VideoList":169,"react":164}],168:[function(require,module,exports){
+var React = require('react');
+var AppActions = require('../actions/AppActions');
+var AppStore = require('../stores/AppStore');
+
+var Video = React.createClass({displayName: "Video",
+  render(){
+    return(
+      React.createElement("div", null, 
+        "video"
+      )
+    )
+  }
+})
+
+module.exports = Video;
+
+},{"../actions/AppActions":165,"../stores/AppStore":173,"react":164}],169:[function(require,module,exports){
+var React = require('react');
+var AppActions = require('../actions/AppActions');
+var AppStore = require('../stores/AppStore');
+var Video = require('./Video');
+
+var VideoList = React.createClass({displayName: "VideoList",
+  render(){
+    return(
+      React.createElement("div", {className: "row"}, 
+        
+          this.props.videos.map((video, index) => {
+            return(
+              React.createElement(Video, {video: video, key: index})
+            )
+          })
+        
+      )
+    )
+  }
+})
+
+module.exports = VideoList;
+
+},{"../actions/AppActions":165,"../stores/AppStore":173,"./Video":168,"react":164}],170:[function(require,module,exports){
 module.exports = {
   SAVE_VIDEO: 'SAVE_VIDEO',
   RECEIVE_VIDEOS: 'RECEIVE_VIDEOS',
 }
 
-},{}],169:[function(require,module,exports){
+},{}],171:[function(require,module,exports){
 var Dispatcher = require('flux').Dispatcher;
 var assign = require('object-assign');
 
@@ -20223,7 +20266,7 @@ var AppDispatcher = assign(new Dispatcher(), {
 
 module.exports = AppDispatcher;
 
-},{"flux":30,"object-assign":33}],170:[function(require,module,exports){
+},{"flux":30,"object-assign":33}],172:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var App = require('./components/App');
@@ -20236,7 +20279,7 @@ ReactDOM.render(
   document.getElementById('app')
 )
 
-},{"./components/App":167,"./utils/appAPI.js":172,"react":164,"react-dom":35}],171:[function(require,module,exports){
+},{"./components/App":167,"./utils/appAPI.js":174,"react":164,"react-dom":35}],173:[function(require,module,exports){
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 var EventEmitter = require('events').EventEmitter;
@@ -20284,6 +20327,7 @@ AppDispatcher.register(function(payload) {
     	//Emit Change
     	AppStore.emit(CHANGE_EVENT);
       break;
+      
     case AppConstants.RECEIVE_VIDEOS:
 	    console.log("Receiving videos…");
 
@@ -20300,7 +20344,7 @@ AppDispatcher.register(function(payload) {
 
 module.exports = AppStore;
 
-},{"../constants/AppConstants":168,"../dispatcher/AppDispatcher":169,"../utils/appAPI.js":172,"events":1,"object-assign":33}],172:[function(require,module,exports){
+},{"../constants/AppConstants":170,"../dispatcher/AppDispatcher":171,"../utils/appAPI.js":174,"events":1,"object-assign":33}],174:[function(require,module,exports){
 var Firebase = require('firebase')
 var AppActions = require('../actions/AppActions');
 
@@ -20328,4 +20372,4 @@ module.exports = {
   },
 }
 
-},{"../actions/AppActions":165,"firebase":29}]},{},[170]);
+},{"../actions/AppActions":165,"firebase":29}]},{},[172]);
