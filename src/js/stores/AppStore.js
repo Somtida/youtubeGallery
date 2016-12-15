@@ -45,6 +45,7 @@ AppDispatcher.register(function(payload) {
     	//Emit Change
     	AppStore.emit(CHANGE_EVENT);
       break;
+      
     case AppConstants.RECEIVE_VIDEOS:
 	    console.log("Receiving videos…");
 
