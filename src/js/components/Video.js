@@ -6,7 +6,8 @@ var Video = React.createClass({
   render(){
     return(
       <div>
-      {this.props.video}
+      <label>name</label>
+      <h5>{this.props.video.name}</h5>
       </div>
     )
   }
