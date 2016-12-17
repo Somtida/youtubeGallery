@@ -4,10 +4,9 @@ var AppStore = require('../stores/AppStore');
 
 var Video = React.createClass({
   render(){
-    console.log(this.props.video)
     return(
       <div>
-        video
+      {this.props.video}
       </div>
     )
   }
