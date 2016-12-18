@@ -9,8 +9,8 @@ var Video = React.createClass({
       <div className="c4">
       <label>title</label>
       <h5>{this.props.video.title}</h5>
-      <iframe width="560" height="315" src={link} frameborder="0" allowfullscreen></iframe>
-  
+      <iframe width="360" height="285" src={link} frameborder="0" allowfullscreen></iframe>
+      <p>{this.prps.video.description}</p>
       </div>
     )
   }
