@@ -20285,7 +20285,6 @@ ReactDOM.render(
 )
 
 },{"./components/App":167,"./utils/appAPI.js":174,"react":164,"react-dom":35}],173:[function(require,module,exports){
-'use strict';
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 var EventEmitter = require('events').EventEmitter;
@@ -20293,12 +20292,12 @@ var assign = require('object-assign');
 var AppAPI = require('../utils/appAPI.js');
 
 var CHANGE_EVENT = 'change';
+
 var _videos = [];
 
 var AppStore = assign({}, EventEmitter.prototype, {
   saveVideo(video) {
-    console.log("_videos", _videos);
-  	// _videos.push(video);
+  	_videos.push(video);
   },
   getVideos() {
   	return _videos;
@@ -20338,7 +20337,7 @@ AppDispatcher.register(function(payload) {
 	    console.log("Receiving videos…");
 
     	// Set Videos
-    	AppStore.setVideos(action.video);
+    	AppStore.setVideos(action.videos);
 
     	//Emit Change
     	AppStore.emit(CHANGE_EVENT);
