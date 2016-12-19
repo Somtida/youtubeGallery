@@ -33,8 +33,8 @@ var App = React.createClass({
     return(
       <div>
         <AddForm />
-        {/* {VideoList} */}
-      </div>
+        <VideoList videos={this.state.videos} />
+      </div> 
     )
   }
 })

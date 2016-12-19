@@ -20195,9 +20195,9 @@ var App = React.createClass({displayName: "App",
     //let VideoList = this.state.videos.length ? <VideoList videos={this.state.videos} /> : null;
     return(
       React.createElement("div", null, 
-        React.createElement(AddForm, null)
-        /* {VideoList} */
-      )
+        React.createElement(AddForm, null), 
+        React.createElement(VideoList, {videos: this.state.videos})
+      ) 
     )
   }
 })
