@@ -1,3 +1,4 @@
+'use strict';
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 var EventEmitter = require('events').EventEmitter;
@@ -9,7 +10,8 @@ var _videos = [];
 
 var AppStore = assign({}, EventEmitter.prototype, {
   saveVideo(video) {
-  	_videos.push(video);
+    console.log("_videos", _videos);
+  	// _videos.push(video);
   },
   getVideos() {
   	return _videos;

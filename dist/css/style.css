@@ -1,5 +1,14 @@
 body {
   margin-top: 30px;
-  padding: 10px;
+  padding-left: 10px;
+  padding-right:10px;
   background-color: bluesky;
+
+}
+.add-form {
+	padding: 20px;
+}
+input[type=text], textarea{
+	width: 500px;
+	padding:4px;
 }

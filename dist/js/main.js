@@ -20210,10 +20210,14 @@ var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStore');
 
 var Video = React.createClass({displayName: "Video",
+  //var link = "https://www.youtube.com/embed/"+this.props.video.video_id;
   render(){
     return(
-      React.createElement("div", null, 
-        "video"
+      React.createElement("div", {className: "c4"}, 
+      React.createElement("label", null, "title")
+      /* <h5>{this.props.video.title}</h5> */
+      /* <iframe width="360" height="285" src={link} frameborder="0" allowfullscreen></iframe> */
+      /* <p>{this.prps.video.description}</p> */
       )
     )
   }
@@ -20281,6 +20285,7 @@ ReactDOM.render(
 )
 
 },{"./components/App":167,"./utils/appAPI.js":174,"react":164,"react-dom":35}],173:[function(require,module,exports){
+'use strict';
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 var EventEmitter = require('events').EventEmitter;
@@ -20292,7 +20297,8 @@ var _videos = [];
 
 var AppStore = assign({}, EventEmitter.prototype, {
   saveVideo(video) {
-  	_videos.push(video);
+    console.log("_videos", _videos);
+  	// _videos.push(video);
   },
   getVideos() {
   	return _videos;
