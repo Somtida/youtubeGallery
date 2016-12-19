@@ -8,7 +8,14 @@ body {
 .add-form {
 	padding: 20px;
 }
-input[type=text], textarea{
+
+input[type=text], textarea {
 	width: 500px;
 	padding:4px;
+}
+
+.delete a {
+	color: red;
+	font-size: 15px;
+	text-decoration: none;
 }
