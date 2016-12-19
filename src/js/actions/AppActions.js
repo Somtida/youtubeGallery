@@ -14,6 +14,12 @@ var AppActions = {
     	videos
     });
   },
+  removeVideo(videoId) {
+  	AppDispatcher.handleViewAction({
+  		actionType: AppConstants.REMOVE_VIDEO;
+  		videoId
+  },
+
 
 
 }

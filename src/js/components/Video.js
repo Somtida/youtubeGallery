@@ -4,7 +4,7 @@ var AppStore = require('../stores/AppStore');
 
 var Video = React.createClass({
   onDelete(i, j) {
-    console.log(i);
+    AppActions.removeVideo(i);
 
   },
   render(){
