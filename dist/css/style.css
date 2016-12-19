@@ -15,6 +15,7 @@ input[type=text], textarea {
 }
 
 .delete a {
+  padding-left: 10px;
 	color: red;
 	font-size: 15px;
 	text-decoration: none;

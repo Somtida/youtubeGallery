@@ -20210,14 +20210,21 @@ var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStore');
 
 var Video = React.createClass({displayName: "Video",
-  //var link = "https://www.youtube.com/embed/"+this.props.video.video_id;
+  onDelete(i, j) {
+    console.log(i);
+
+  },
   render(){
+    var link = `https://www.youtube.com/embed/${this.props.video.video_id}`;
     return(
       React.createElement("div", {className: "c4"}, 
-      React.createElement("label", null, "title")
-      /* <h5>{this.props.video.title}</h5> */
-      /* <iframe width="360" height="285" src={link} frameborder="0" allowfullscreen></iframe> */
-      /* <p>{this.prps.video.description}</p> */
+        React.createElement("h5", null, this.props.video.title, 
+          React.createElement("span", {className: "delete"}, 
+            React.createElement("a", {onClick: this.onDelete.bind(this, this.props.video.id), href: "#"}, "X")
+          )
+        ), 
+        React.createElement("iframe", {width: "360", height: "285", src: link, frameBorder: "0", allowFullScreen: true}), 
+        React.createElement("p", null, this.props.video.description)
       )
     )
   }
