@@ -55,6 +55,12 @@ AppDispatcher.register(function(payload) {
     	//Emit Change
     	AppStore.emit(CHANGE_EVENT);
       break;
+    case AppConstants.REMOVE_VIDEO:
+    	console.log("Removing Video…", action.videoId);
+
+    	//Emit Change
+    	AppStore.emit(CHANGE_EVENT);
+
   }
 
   return true;

@@ -16,10 +16,10 @@ var AppActions = {
   },
   removeVideo(videoId) {
   	AppDispatcher.handleViewAction({
-  		actionType: AppConstants.REMOVE_VIDEO;
+  		actionType: AppConstants.REMOVE_VIDEO,
   		videoId
+    });
   },
-
 
 
 }
