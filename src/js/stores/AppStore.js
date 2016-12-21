@@ -56,7 +56,13 @@ AppDispatcher.register(function(payload) {
     	AppStore.emit(CHANGE_EVENT);
       break;
     case AppConstants.REMOVE_VIDEO:
-    	console.log("Removing Video…", action.videoId);
+    	console.log("Removing Video…");
+
+      // Store Remove
+    	AppStore.removeVideo(action.videoId);
+
+    	// API Remove
+    	AppAPI.removeVideo(action.videoId);
 
     	//Emit Change
     	AppStore.emit(CHANGE_EVENT);
