@@ -23,7 +23,8 @@ module.exports = {
       })
     });
   },
-  removeVideo() {
-
+  removeVideo(videoId) {
+  	this.firebaseRef = new Firebase(`https://mygallery-3b400.firebaseio.com/videos${videoId}`);
+  	this.firebaseRef.remove();
   },
 }

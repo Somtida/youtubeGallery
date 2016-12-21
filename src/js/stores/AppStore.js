@@ -19,8 +19,8 @@ var AppStore = assign({}, EventEmitter.prototype, {
   	_videos = videos;
   },
   removeVideo(videoId) {
-  	var index = _video.findIndex(x => x.id === videoId);
-  	_video.splice(index, 1);
+  	var index = _videos.findIndex(x => x.id === videoId);
+  	_videos.splice(index, 1);
   },
   emitChange: function() {
     this.emit(CHANGE_EVENT);
