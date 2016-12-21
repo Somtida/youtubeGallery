@@ -20134,29 +20134,30 @@ var AddForm = React.createClass({displayName: "AddForm",
     	video_id: this.refs.video_id.value.trim(),
     	description: this.refs.description.value.trim()
     }
+    this.refs.title.value = "";
+    this.refs.video_id.value = "";
+    this.refs.description.value = "";
     AppActions.saveVideo(video);
   },
   render(){
     return(
-      React.createElement("div", null, 
-        React.createElement("div", {className: "add-form"}, 
-          React.createElement("panel", {className: "c12"}, 
-            React.createElement("h3", null, "Add Video"), 
-            React.createElement("form", {onSubmit: this.onSubmit}, 
-              React.createElement("div", {className: "form-group"}, 
-                React.createElement("label", null, "Video Title"), React.createElement("br", null), 
-                React.createElement("input", {type: "text", className: "form-control", ref: "title"})
-              ), 
-              React.createElement("div", {className: "form-group"}, 
-                React.createElement("label", null, "Video ID"), React.createElement("br", null), 
-                React.createElement("input", {type: "text", className: "form-control", ref: "video_id"})
-              ), 
-              React.createElement("div", {className: "form-group"}, 
-                React.createElement("label", null, "Video Description"), React.createElement("br", null), 
-                React.createElement("textarea", {className: "form-control", ref: "description"})
-              ), 
-              React.createElement("button", {type: "submit", className: "button"}, "Add")
-            )
+      React.createElement("div", {className: "add-form"}, 
+        React.createElement("panel", {className: "c12"}, 
+          React.createElement("h3", null, "Add Video"), 
+          React.createElement("form", {onSubmit: this.onSubmit}, 
+            React.createElement("div", {className: "form-group"}, 
+              React.createElement("label", null, "Video Title"), React.createElement("br", null), 
+              React.createElement("input", {type: "text", className: "form-control", ref: "title"})
+            ), 
+            React.createElement("div", {className: "form-group"}, 
+              React.createElement("label", null, "Video ID"), React.createElement("br", null), 
+              React.createElement("input", {type: "text", className: "form-control", ref: "video_id"})
+            ), 
+            React.createElement("div", {className: "form-group"}, 
+              React.createElement("label", null, "Video Description"), React.createElement("br", null), 
+              React.createElement("textarea", {className: "form-control", ref: "description"})
+            ), 
+            React.createElement("button", {type: "submit", className: "btn-green"}, "Add")
           )
         )
       )
@@ -20339,7 +20340,7 @@ AppDispatcher.register(function(payload) {
 
   switch(action.actionType) {
     case AppConstants.SAVE_VIDEO:
-	    console.log("Saving video…", action.video);
+	    console.log("Saving video…");
 
     	// Store Save
     	AppStore.saveVideo(action.video);
@@ -20371,7 +20372,7 @@ AppDispatcher.register(function(payload) {
 
     	//Emit Change
     	AppStore.emit(CHANGE_EVENT);
-
+      break;
   }
 
   return true;
@@ -20385,7 +20386,7 @@ var AppActions = require('../actions/AppActions');
 
 module.exports = {
   saveVideo(video) {
-    console.log('API called...');
+    console.log('saved to firebase');
     this.firebaseRef = new Firebase("https://mygallery-3b400.firebaseio.com/videos");
     this.firebaseRef.push(video);
   },

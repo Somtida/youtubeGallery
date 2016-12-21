@@ -38,7 +38,7 @@ AppDispatcher.register(function(payload) {
 
   switch(action.actionType) {
     case AppConstants.SAVE_VIDEO:
-	    console.log("Saving video…", action.video);
+	    console.log("Saving video…");
 
     	// Store Save
     	AppStore.saveVideo(action.video);
@@ -70,7 +70,7 @@ AppDispatcher.register(function(payload) {
 
     	//Emit Change
     	AppStore.emit(CHANGE_EVENT);
-
+      break;
   }
 
   return true;

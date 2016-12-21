@@ -3,7 +3,7 @@ var AppActions = require('../actions/AppActions');
 
 module.exports = {
   saveVideo(video) {
-    console.log('API called...');
+    console.log('saved to firebase');
     this.firebaseRef = new Firebase("https://mygallery-3b400.firebaseio.com/videos");
     this.firebaseRef.push(video);
   },
