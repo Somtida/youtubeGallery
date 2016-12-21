@@ -1,16 +1,35 @@
 body {
-  margin-top: 30px;
-  padding-left: 10px;
+  margin-top: 10px;
+  padding-left: 20px;
   padding-right:10px;
-  background-color: bluesky;
-
+  background-image:  url("http://static.wixstatic.com/media/c98ce3_28d6e5eee7ef45e7b543111d26dadc35~mv2.png"), url("http://orig07.deviantart.net/d03e/f/2008/148/c/3/wood_floor_by_gnrbishop.jpg");
+  background-position: right top, left top;
+  background-repeat: no-repeat, repeat;
 }
-.add-form {
-	padding: 20px;
+
+.mytitle {
+  text-align: center;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.titletop {
+  display: inline-block;
+}
+
+panel {
+  background-color: #e0ebeb;
+}
+/*.add-form {
+	padding: 5px;
+}*/
+
+.lsf-icon.amazon:before {
+  content: '\E12c';
 }
 
 input[type=text], textarea {
-	width: 500px;
+	width: 700px;
 	padding:4px;
 }
 

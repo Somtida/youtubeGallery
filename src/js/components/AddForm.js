@@ -18,7 +18,7 @@ var AddForm = React.createClass({
   render(){
     return(
       <div className="add-form">
-        <panel className="c12">
+        <panel className="c8 o2">
           <h3>Add Video</h3>
           <form onSubmit={this.onSubmit}>
             <div className="form-group">

@@ -20142,7 +20142,7 @@ var AddForm = React.createClass({displayName: "AddForm",
   render(){
     return(
       React.createElement("div", {className: "add-form"}, 
-        React.createElement("panel", {className: "c12"}, 
+        React.createElement("panel", {className: "c8 o2"}, 
           React.createElement("h3", null, "Add Video"), 
           React.createElement("form", {onSubmit: this.onSubmit}, 
             React.createElement("div", {className: "form-group"}, 
@@ -20217,8 +20217,8 @@ var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStore');
 
 var Video = React.createClass({displayName: "Video",
-  onDelete(i, j) {
-    AppActions.removeVideo(i);
+  onDelete(id, j) {
+    AppActions.removeVideo(id);
 
   },
   render(){
@@ -20407,7 +20407,8 @@ module.exports = {
     });
   },
   removeVideo(videoId) {
-  	this.firebaseRef = new Firebase(`https://mygallery-3b400.firebaseio.com/videos${videoId}`);
+    console.log("appAPI",videoId);
+  	this.firebaseRef = new Firebase(`https://mygallery-3b400.firebaseio.com/videos/${videoId}`);
   	this.firebaseRef.remove();
   },
 }

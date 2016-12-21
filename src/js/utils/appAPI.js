@@ -24,7 +24,8 @@ module.exports = {
     });
   },
   removeVideo(videoId) {
-  	this.firebaseRef = new Firebase(`https://mygallery-3b400.firebaseio.com/videos${videoId}`);
+    console.log("appAPI",videoId);
+  	this.firebaseRef = new Firebase(`https://mygallery-3b400.firebaseio.com/videos/${videoId}`);
   	this.firebaseRef.remove();
   },
 }

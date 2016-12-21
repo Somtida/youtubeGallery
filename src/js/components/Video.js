@@ -3,8 +3,8 @@ var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStore');
 
 var Video = React.createClass({
-  onDelete(i, j) {
-    AppActions.removeVideo(i);
+  onDelete(id, j) {
+    AppActions.removeVideo(id);
 
   },
   render(){
